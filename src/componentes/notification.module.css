@@ -1,0 +1,19 @@
+
+.containerNotification{
+    display: flex;
+    width: 300px;
+
+    margin-top: 16px;
+    background: var(--gray-400);
+    
+    border-radius: 2px;
+
+}
+.containerNotification *{
+    color: var(--gray-800);
+}
+span{
+    display: block;
+    padding: 16px;
+    text-align: center;
+}

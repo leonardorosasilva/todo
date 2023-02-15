@@ -1,0 +1,32 @@
+header{
+    display: flex;
+    align-items: center;
+    
+    background: transparent;
+}
+.containerPrincipalHeader{
+    margin: auto;
+    width: 80%;
+}
+header > div >h2{
+    display: inline-flex;
+    padding: 10px;
+    margin-right: 70%;
+}
+.iconsDS{
+    display: inline-flex;
+}
+
+.iconsDS * {
+    margin: 0px 15px;
+    padding: 5px;
+    transition: background 0.1s;
+}
+.iconsDS *:hover{
+    border-radius:50% ;
+    background: var(--gray-500);
+    
+}
+.iconsDS *:visited{
+    color: var(--gray-200);
+}
