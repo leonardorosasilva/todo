@@ -8,13 +8,24 @@
   --gray-600:#4b5563;
   --gray-700:#374151;
   --gray-800:#1f2937;
+
+  --zinc-900:#18181b;
+
+  --blue-300:#93c5fd;
+  --blue-400:#60a5fa;
+  --blue-500:#3b82f6;
+  --blue-600:#2563eb;
+  --blue-700:#1d4ed8;
 }
 body{
-  background: var(--gray-800);
+  background: var(--zinc-900);
   color: var(--gray-200);
 }
 *{
   padding: 0;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
+}
+:focus{
+  display: none;
 }

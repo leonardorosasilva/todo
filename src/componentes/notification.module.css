@@ -1,16 +1,16 @@
 
 .containerNotification{
     display: flex;
-    width: 300px;
+    width: 60%;
 
-    margin-top: 16px;
-    background: var(--gray-400);
+    margin-top: 32px;
+    background: var(--gray-700);
     
     border-radius: 2px;
 
 }
 .containerNotification *{
-    color: var(--gray-800);
+    color: var(--gray-100);
 }
 span{
     display: block;

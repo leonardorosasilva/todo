@@ -2,7 +2,6 @@ header{
     display: flex;
     align-items: center;
     
-    background: transparent;
 }
 .containerPrincipalHeader{
     margin: auto;

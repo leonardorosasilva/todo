@@ -1,0 +1,45 @@
+
+.containerTask{
+    display: block;
+    margin: 20px;
+    padding: 10px;
+    border-radius:1px ;
+    background: var(--gray-700);  
+    
+}
+.infoTask{
+    display: block;
+    text-align: center;
+}
+.tasks{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+hr {
+    display: inline-block;
+    width: 50%;
+    height: 1px;
+    background: var(--gray-500);
+
+    border: none;
+}
+.dateAdd{
+    font-size: 0.75rem;
+    color: var(--gray-400);
+    padding: 0;
+    
+}
+.tasks > nav{
+    display: inline-flex;
+    align-items: center;
+}
+.tasks > nav > ul{
+    list-style: none;
+    
+}
+.tasks > nav > ul > li {
+    display: inline-block;
+    margin-left:16px ;
+    
+}
