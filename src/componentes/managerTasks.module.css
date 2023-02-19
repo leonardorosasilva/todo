@@ -26,3 +26,7 @@
 .manageTasks a{
     list-style:none ;
     text-decoration: none;}
+    
+@media(max-height: 1366px){
+    
+}

@@ -29,3 +29,35 @@ header > div >h2{
 .iconsDS *:visited{
     color: var(--gray-200);
 }
+
+
+
+
+
+@media (max-width: 768px) {
+    .iconsDS{
+        display: none;
+    }
+    .containerPrincipalHeader{
+        text-align: center;
+        width: 100%;
+    }
+    header{
+        display: block;
+        width: 100%;
+    }
+    header > .containerPrincipalHeader >h2{
+        text-align: center;
+        padding: 10px;
+        margin-right: 0;
+    }
+}
+
+
+
+
+@media(max-width: 425){
+    .containerPrincipalHeader{
+        display: none;
+    }
+}

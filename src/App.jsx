@@ -5,6 +5,33 @@ import { Tasks } from './componentes/managerTasks'
 import { Notification } from './componentes/notification'
 import { Todo } from './componentes/Todo'
 
+//Todo string: { nomeTag }
+//content notification: { user , pendencia, priorizar}
+//DateAdd: Date
+
+//Iteração, sempre utilizando o map
+
+const doTasks = [
+   { id:1,
+    nameTask:{
+      task: 'Arrumar a casa'
+    },
+    dataTask: new Date('2023-02-19 21:00:00')},
+ 
+   { id:2,
+    nameTask:{
+      task: 'Arrumar a cama'
+    },
+    dataTask: new Date('2023-02-26 22:00:00')},
+
+    {id:3,
+    nameTask:{
+      task: 'Ler um livro'
+    },
+    dataTask: new Date('2023-02-28 15:00:00')}
+
+];
+
 export function App(){
   return(
   <div>
@@ -24,15 +51,14 @@ export function App(){
          <Tasks/>
       </section>
       <section className={styles.todoContainer}>
-          <Todo
-            infoTask='Task 1'  
-          />
-          <Todo 
-            infoTask='Task 2'
-          />
-          <Todo 
-            infoTask='Task 3'
-          />
+        {doTasks.map( todo =>{
+          return(
+            <Todo
+              infoTask={todo.nameTask}
+              dateAddTask={todo.dataTask}
+            />
+          )
+        })}
       </section>
     </main>
   </div>
