@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styles from './App.module.css'
 
 import { Header } from './componentes/header'
@@ -11,28 +12,47 @@ import { Todo } from './componentes/Todo'
 
 //Iteração, sempre utilizando o map
 
-const doTasks = [
-   { id:1,
-    nameTask:{
-      task: 'Arrumar a casa'
-    },
-    dataTask: new Date('2023-02-19 21:00:00')},
- 
-   { id:2,
-    nameTask:{
-      task: 'Arrumar a cama'
-    },
-    dataTask: new Date('2023-02-26 22:00:00')},
+//Estado
 
-    {id:3,
-    nameTask:{
-      task: 'Ler um livro'
-    },
-    dataTask: new Date('2023-02-28 15:00:00')}
-
-];
 
 export function App(){
+
+  // 1° recebe o valor 2° altera o valor
+  const [addTask,setTask] = useState([
+    { id:1,
+      nameTask:{
+        task: 'Exercicios Físicos'
+      },
+      dataTask: new Date('2023-02-19 21:00:00')},
+   
+     { id:2,
+      nameTask:{
+        task: 'Arrumar a cama'
+      },
+      dataTask: new Date('2023-02-20 22:00:00')},
+    ]);
+
+    
+    //sempre que ação é disparada pelo usuario pode colocar no nome da função handle
+function handleUserCreateNewTask(e) {
+    e.preventDefault()
+
+
+  // Crie um novo objeto de tarefa com um ID exclusivo
+  const newTask = {
+  // ... copia tudo que vem antes
+
+    id: Math.max(...addTask.map(task => task.id)) + 1,
+    nameTask: {
+      task: 'Nova Tarefa'
+    },
+    dataTask: new Date('2023-05-17 20:20:00')
+  };
+
+  // Adicione a nova tarefa ao array de tarefas existente
+  setTask(addTask.concat(newTask));
+};
+
   return(
   <div>
     <Header/>
@@ -43,19 +63,27 @@ export function App(){
         pendencia='0'
         priorizar='0'
       />
+
       <section className={styles.search}>
-        <textarea name="" placeholder='Digite para adicionar...' id="" cols="30" rows="10"></textarea> 
-        <button>Adicionar</button>
+      {/* No formulario onClick é onSubmit, fora é normal */}
+
+        <form onSubmit={handleUserCreateNewTask}>
+          
+          <textarea name="" placeholder='Digite para adicionar...' id="" cols="30" rows="10"></textarea> 
+          <input type="submit" value="Adicionar" />
+        </form>
       </section>
+
       <section>
          <Tasks/>
       </section>
+
       <section className={styles.todoContainer}>
-        {doTasks.map( todo =>{
+        {addTask.map( taskn =>{
           return(
             <Todo
-              infoTask={todo.nameTask}
-              dateAddTask={todo.dataTask}
+              infoTask={taskn.nameTask}
+              dateAddTask={taskn.dataTask}
             />
           )
         })}

@@ -21,9 +21,12 @@
     width: 60%;
     margin-top: 10px;
 
-    display: flex;
 }
-.search > textarea{
+.search > form{
+    display: flex;
+    align-items: center;
+}
+.search > form > textarea{
     resize: none;
     border: none;
     display: flex;
@@ -35,20 +38,20 @@
     color: var(--gray-400);
     background-color: var(--gray-700);
 }
-.search > textarea::placeholder{
+.search > form >textarea::placeholder{
     padding: 10px;
     color: var(--gray-400);
 }
-.search > button{
-    width: 19.4%;
-    height: 61px;
+.search > form > input {
+    padding: 20px;
     color: var(--gray-100);
     background-color: var(--blue-500);
 
+    display: inline-block;
     border: none;
     border-radius: 1px;
 }
-.search > textarea:focus{
+.search > form > textarea:focus{
     box-shadow: 0 0 5px 1px var(--blue-300);
     outline: none;
     border: none;
