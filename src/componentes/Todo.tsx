@@ -1,15 +1,14 @@
-import styles from './Todo.module.css';
+import { useState } from "react";
 import { faStar, faEdit, faEraser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styles from './Todo.module.css';
 
 interface PropsTodo {
-  id: number;
-  infoTask: {
-    task: any;
-  };
-  dateAddTask: Date;
-  onDeleteTask: (id: number) => void;
-
+  id:number
+  infoTask:string
+  dateAddTask:Date
+  onDeleteTask: (id: number) => void
+  onFavoriteTask(): void
 }
 
 export function Todo({
@@ -17,6 +16,7 @@ export function Todo({
   infoTask,
   dateAddTask,
   onDeleteTask,
+  onFavoriteTask
 }: PropsTodo): JSX.Element {
   const AddDateTask = new Intl.DateTimeFormat('pt-BR', {
     day: '2-digit',
@@ -24,40 +24,41 @@ export function Todo({
     year: 'numeric',
   }).format(dateAddTask);
 
+  const [isFavorite, setIsFavorite] = useState<boolean>(false);
+
   function handleDeleteTask() {
     onDeleteTask(id);
+  }
+
+  function handleFavoriteTask() {
+    setIsFavorite(!isFavorite);
+    onFavoriteTask();
   }
 
   return (
     <div className={styles.containerTask}>
       <label className={styles.infoTask} htmlFor="checkbox">
-        {infoTask.task}
+        {infoTask}
       </label>
       <div className={styles.tasks}>
         <input className={styles.checkbox} type="checkbox" name="" id="checkbox" />
         <hr />
         <nav>
           <ul>
-            <li>
-              <button>
+            {/* <li>
+              <button onClick={handleFavoriteTask}>
                 <FontAwesomeIcon
-                  className={styles.favoriteTask}
+                  className={`${styles.favoriteTask} ${isFavorite ? styles.favorite : ''}`}
                   title="Favoritar"
                   icon={faStar}
                   size="xl"
                 />
               </button>
-            </li>
-            <li>
-              <button>
-                <FontAwesomeIcon title="Editar" icon={faEdit} size="xl" />
-              </button>
-            </li>
+            </li> */}
 
             <li>
-              <button>
+              <button onClick={handleDeleteTask}>
                 <FontAwesomeIcon
-                  onClick={handleDeleteTask}
                   className={styles.clearTask}
                   title="Apagar"
                   icon={faEraser}

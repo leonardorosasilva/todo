@@ -9,10 +9,10 @@ export function Header(){
         <div className={styles.containerPrincipalHeader}>
             <h2>Todo List</h2>
         </div>
-        <nav className={styles.iconsDS}>
+        {/* <nav className={styles.iconsDS}>
             <a href=''><FontAwesomeIcon icon={faMoon} size='2x  ' /></a>
             <a href=''><FontAwesomeIcon icon={faBars} size='2x'/></a>
-        </nav>
+        </nav> */}
     </header>
     );
 }
